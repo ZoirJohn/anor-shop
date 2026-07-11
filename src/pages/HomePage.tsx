@@ -1,3 +1,14 @@
+import { Container } from '@mantine/core'
+import Banner from '../components/banner'
+import ProductCard from '../components/card'
+
 export function HomePage() {
-  return <h1>HomePage</h1>
+  return (
+    <>
+      <Banner />
+      <Container size={1200}>
+        <ProductCard />
+      </Container>
+    </>
+  )
 }

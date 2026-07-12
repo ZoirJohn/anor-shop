@@ -1,6 +1,9 @@
-import { Button, Container, Flex, Grid, Text } from '@mantine/core'
-import ProductCard from '../components/card'
-import { useState } from 'react'
+import {
+  Container,
+  Grid,
+} from '@mantine/core'
+import ProductCard from './card'
+import LinkCaption from "./linkCaption"
 
 const products = [
   {
@@ -142,35 +145,17 @@ const products = [
   },
 ]
 
-const productTypes = ['clothes', 'groceries', 'toys', 'fruits', 'attributes']
-
-export default function ProductsPage() {
-  const [activeTag, setActiveTag] = useState('clothes')
+export default function ProductShowcase() {
+  //   const [products, setProducts] = useState([])
+  //   useEffect(() => {
+  //     fetch('https://api.escuelajs.co/api/v1/products?offset=0&limit=6')
+  //       .then((res) => res.json())
+  //       .then((data) => setProducts(data))
+  //   }, [])
   return (
     <section>
-      <Container size={1296}>
-        <Text fz={48} ta="center" py={20} fw={700}>
-          Select a product
-        </Text>
-        <Flex pt={20} pb={40} gap={24} justify={'center'}>
-          {productTypes.map((t) => {
-            return (
-              <Button
-                variant="default"
-                bd="none"
-                bg={activeTag === t ? '#A30041' : ''}
-                c={activeTag === t ? '#fff' : ''}
-                onClick={() => setActiveTag(t)}
-                tt={'capitalize'}
-                radius={20}
-                h={42}
-                w={120}
-              >
-                {t}
-              </Button>
-            )
-          })}
-        </Flex>
+      <Container size={1296} pt={40}>
+        <LinkCaption caption="Choose the product"/>
         <Grid>
           {products.map((p) => (
             <Grid.Col span={4}>

@@ -1,14 +1,11 @@
-import { Container } from '@mantine/core'
 import Banner from '../components/banner'
-import ProductCard from '../components/card'
+import ProductShowcase from "../components/productshowcase"
 
 export function HomePage() {
   return (
     <>
       <Banner />
-      <Container size={1200}>
-        <ProductCard />
-      </Container>
+      <ProductShowcase/>
     </>
   )
 }

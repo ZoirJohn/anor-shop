@@ -9,31 +9,17 @@ export default function Banner() {
   const inputWidth = !lg ? 366 : !md ? 286 : 246
   return (
     <section>
-      <Container size={1200} style={{}}>
+      <Container size={1296}>
         <Flex
-          style={{
-            background: '#A30041',
-            borderRadius: '24px',
-            padding: lg ? '48px 32px' : '78px 32px',
-            display: 'flex',
-            gap: '42px',
-            alignItems: 'center',
-          }}
+          bg="#A30041"
+          bdrs={24}
+          py={!lg ? 48 : 78}
+          px={32}
+          gap={42}
+          align="center"
         >
-          <Flex
-            c="#fff"
-            direction={'column'}
-            gap={28}
-            align={'start'}
-            style={{ paddingTop: '45px' }}
-          >
-            <Text
-              style={{
-                fontSize: !lg ? 60 : !md ? 40 : 32,
-                fontWeight: 'bold',
-                lineHeight: '1',
-              }}
-            >
+          <Flex c="#fff" direction={'column'} gap={28} align={'start'} pt={45}>
+            <Text fz={!lg ? 60 : !md ? 40 : 32} fw={700} lh={1}>
               Experience the road like never before
             </Text>
             <Text>
@@ -47,10 +33,8 @@ export default function Banner() {
           </Flex>
           <Flex
             bg="white"
-            style={{
-              borderRadius: '24px',
-              padding: !lg ? '40px' : !md ? '30px' : '20px',
-            }}
+            bdrs={24}
+            p={!lg ? 40 : !md ? 30 : 20}
             direction={'column'}
             gap={'20px'}
           >
@@ -71,6 +55,9 @@ export default function Banner() {
               data={['React', 'Angular', 'Vue', 'Svelte']}
             />
             <DateInput placeholder="Arrival date" />
+            <Button bg="orange" component={Link} to="/products">
+             Book now
+            </Button>
           </Flex>
         </Flex>
       </Container>

@@ -34,7 +34,7 @@ export default function Header() {
             style={{ justifyContent: 'space-between', gap: lg ? 20 : 44 }}
           >
             {LINKS.map(({ title, link }) => (
-              <List.Item>
+              <List.Item key={title + link}>
                 <NavLink
                   to={link}
                   style={({ isActive }) => ({

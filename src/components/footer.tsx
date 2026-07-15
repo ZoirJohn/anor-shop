@@ -1,7 +1,7 @@
 import { Anchor, Button, Container, Flex, List, Text } from '@mantine/core'
 import { LINKS } from '../consts'
 import { Link } from 'react-router'
-import { AppStoreLogoIcon, GooglePlayLogoIcon } from "@phosphor-icons/react"
+import { AppStoreLogoIcon, GooglePlayLogoIcon } from '@phosphor-icons/react'
 
 export default function footer() {
   return (
@@ -19,7 +19,7 @@ export default function footer() {
               Useful links
             </Text>
             {LINKS.map(({ title, link }) => (
-              <List.Item>
+              <List.Item key={link + title}>
                 <Anchor component={Link} to={link} td="none" c="black">
                   {title}
                 </Anchor>

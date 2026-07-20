@@ -3,9 +3,10 @@ import { Link } from 'react-router'
 
 type TProps = {
   product: IProduct
+  onDelete: () => void
 }
 
-export default function ProductCard({ product }: TProps) {
+export default function ProductCard({ product, onDelete }: TProps) {
   return (
     <Card
       shadow="sm"
@@ -26,6 +27,7 @@ export default function ProductCard({ product }: TProps) {
         <Text fw={500} size="lg">
           {product.title}
         </Text>
+
         <Text mb={16} c="gray">
           {product.category.name}
         </Text>
@@ -37,6 +39,18 @@ export default function ProductCard({ product }: TProps) {
         </Text>
         <Button color="#A30041" fullWidth mt="md">
           View details
+        </Button>
+        <Button
+          color="red"
+          fullWidth
+          mt="md"
+          onClick={(e) => {
+            e.stopPropagation()
+            e.preventDefault()
+            onDelete()
+          }}
+        >
+          Delete
         </Button>
       </Stack>
     </Card>

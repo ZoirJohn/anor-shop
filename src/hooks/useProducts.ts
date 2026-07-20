@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { $api } from '../api/api'
 
 export function useProducts() {
@@ -34,5 +34,31 @@ export function useProductsByCategorySlug(categorySlug: string) {
           },
         })
         .then((data) => data.data),
+  })
+}
+
+export function useProductsMutation() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (product: {
+      title: string
+      price: number
+      description: string
+      categoryId: number
+      images: string[]
+    }) => $api.post('/products', product),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] })
+    },
+  })
+}
+
+export function useProductsDeletion() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (id: number) => $api.delete('/products/' + id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] })
+    },
   })
 }

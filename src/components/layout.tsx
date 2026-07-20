@@ -7,7 +7,12 @@ export default function Layout() {
   return (
     <Flex direction={'column'} mih="100vh">
       <Header />
-      <Box component="main" flex={1} display={"flex"} style={{flexDirection:"column"}}>
+      <Box
+        component="main"
+        flex={1}
+        display={'flex'}
+        style={{ flexDirection: 'column' }}
+      >
         <Outlet />
       </Box>
       <Footer />
